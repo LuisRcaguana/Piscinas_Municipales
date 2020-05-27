@@ -7,15 +7,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Graph  {
 
-  /* lll
-   @SerializedName("@id")
-    @Expose
-    private String aid;
-    @SerializedName("@type")
-    @Expose
-    private String type;*/
-
-    @SerializedName("@id")
+  @SerializedName("@id")
     @Expose
     private String aid;
     @SerializedName("title")
@@ -24,10 +16,6 @@ public class Graph  {
     @SerializedName("location")
     @Expose
     private Location location;
-    /*@SerializedName("organization")
-    @Expose
-    private Organization organization;*/
-
 
     public String getId() {
         return aid;

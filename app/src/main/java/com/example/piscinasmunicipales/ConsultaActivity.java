@@ -49,6 +49,7 @@ public class ConsultaActivity extends AppCompatActivity {
                 if(response.isSuccessful()){
                     Contenido contenido = response.body();
                     ArrayList<Graph> lista = (ArrayList<Graph>) contenido.getGraph();
+                   // ArrayList<Graph> lista = (ArrayList<Graph>) contenido.getGraph();
                     cargarRv(lista);
                 }
                 Log.e("onResponse", "error;" + response.code());
@@ -73,17 +74,16 @@ public class ConsultaActivity extends AppCompatActivity {
         psc = new PiscinasAdapter(lista);
         psc.setListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+           public void onClick(View v) {
                 Intent i = new Intent(ConsultaActivity.this,
                         ScrollingActivity.class);
 
                 //calculado
-               String id = lista.get(rv.getChildAdapterPosition(v))
-                        .getId();
-               String json = id.substring(id.lastIndexOf("/")+ 1);
+               String id = lista.get(rv.getChildAdapterPosition(v)).getId();
+               String json = id.substring(id.lastIndexOf("/") + 1);
                 i.putExtra(CLAVE_IDPISCINA, json);
                 startActivity(i);
-//
+
             }
         });
         llm = new LinearLayoutManager(this);

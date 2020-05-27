@@ -16,8 +16,8 @@ public interface ApiPiscinasService {
     @GET("egob/catalogo/210227-0-piscinas-publicas.json")
     Call<Contenido>obtenerPiscinaPorDisc(@Query("distrito_nombre")String distrito);
 
-    @GET("egob/catalogo/tipo/entidadesyorganismos/[id_piscina]")
-    Call<Contenido2> obtenerDatosPiscinas(@Path("id_piscinas") String idpis);
+    @GET("egob/catalogo/tipo/entidadesyorganismos/{id_piscina}")
+    Call<Contenido2> obtenerDatosPiscinas(@Path("id_piscina") String idpis);
 
 //ok
 
