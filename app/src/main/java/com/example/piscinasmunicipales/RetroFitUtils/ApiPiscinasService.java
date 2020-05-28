@@ -19,6 +19,5 @@ public interface ApiPiscinasService {
     @GET("egob/catalogo/tipo/entidadesyorganismos/{id_piscina}")
     Call<Contenido2> obtenerDatosPiscinas(@Path("id_piscina") String idpis);
 
-//ok
 
 }

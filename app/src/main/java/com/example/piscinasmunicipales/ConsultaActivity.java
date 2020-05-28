@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,22 +35,28 @@ public class ConsultaActivity extends AppCompatActivity {
     RecyclerView rv;
     PiscinasAdapter psc;
     LinearLayoutManager llm;
+    ProgressBar pb;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta);
+        pb = findViewById(R.id.progressBar);
+        pb.setVisibility(View.INVISIBLE);
         String provincia = getIntent().getStringExtra(MainActivity.CLAVE_PROVINCIA);
         Retrofit r = RetrofitPiscinas.getClient(ApiPiscinasService.Base_URL);
         ApiPiscinasService ars = r.create(ApiPiscinasService.class);
         Call<Contenido> call = ars.obtenerPiscinaPorDisc(provincia);
+        pb.setVisibility(View.VISIBLE);
         call.enqueue(new Callback<Contenido>() {
             @Override
             public void onResponse(Call<Contenido> call, Response<Contenido> response) {
+                pb.setVisibility(View.INVISIBLE);
                 if(response.isSuccessful()){
                     Contenido contenido = response.body();
                     ArrayList<Graph> lista = (ArrayList<Graph>) contenido.getGraph();
-                   // ArrayList<Graph> lista = (ArrayList<Graph>) contenido.getGraph();
                     cargarRv(lista);
                 }
                 Log.e("onResponse", "error;" + response.code());

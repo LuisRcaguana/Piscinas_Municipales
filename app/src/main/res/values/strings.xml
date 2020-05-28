@@ -38,4 +38,5 @@
     <string name="ACCE">Accesibilidad</string>
     <string name="Clen">Calendario</string>
     <string name="OrgiN">Nombre de la Organización</string>
+    <string name="tras">Forma de llegar</string>
 </resources>
