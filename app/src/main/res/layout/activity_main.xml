@@ -24,7 +24,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/TexBien"
                 android:textAlignment="center"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:gravity="center_horizontal" />
 
             <TextView
                 android:id="@+id/TexDis"
@@ -34,7 +35,8 @@
                 android:layout_below="@id/TexV1"
                 android:text="@string/TexSecl"
                 android:textAlignment="center"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:gravity="center_horizontal" />
 
             <EditText
                 android:id="@+id/Datos"
@@ -46,7 +48,8 @@
                 android:layout_marginRight="30dp"
                 android:hint="@string/hintMu"
                 android:inputType="textCapCharacters"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
 
             <Button
                 android:id="@+id/bntDatos"
